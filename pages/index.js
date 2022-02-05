@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from "next/head";
+import Link from "next/link";
 
-import styles from '../styles/Home.module.css';
+import styles from "../styles/Home.module.css";
 
 export default function Home({ list }) {
   return (
@@ -24,12 +24,14 @@ export default function Home({ list }) {
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                 />
-                <br/>
+                <br />
                 <p> {item.title} </p>
               </a>
             </li>
           ))}
         </ul>
+
+        <Link href="/sobre">Sobre mim</Link>
       </main>
     </div>
   );
