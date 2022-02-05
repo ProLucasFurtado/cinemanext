@@ -1,9 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-export default function Home({list}) {
+export default function Home({ list }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,28 +13,30 @@ export default function Home({list}) {
       <main className={styles.main}>
         <h1 className={styles.title}>Filmes em Destaque</h1>
         <ul>
-          {list.map(item => (
+          {list.map((item) => (
             <li>
-              <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} /><br/>
-              <p >
-                {item.title}
-                </p>
+              <a href={`/movie/${item.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                />
+                <br />
+                <p> {item.title} </p>
+              </a>
             </li>
-          ))} 
-          </ul>
-
+          ))}
+        </ul>
       </main>
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await fetch ('http://localhost:3000/api/trending');
+  const res = await fetch("http://localhost:3000/api/trending");
   const json = await res.json();
 
   return {
     props: {
-      list: json.list
-    }
-  }
+      list: json.list,
+    },
+  };
 }
