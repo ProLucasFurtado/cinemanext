@@ -24,7 +24,7 @@ export default function Home({ list }) {
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                 />
-                <br />
+                <br/>
                 <p> {item.title} </p>
               </a>
             </li>
