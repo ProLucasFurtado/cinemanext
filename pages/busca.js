@@ -29,11 +29,10 @@ export default function Busca({ list }) {
           type="text"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-        /> <br/>
+        />{" "}
+        <br />
         <button onClick={handleSearch}>Buscar</button>
-
         <hr />
-
         <ul>
           {movieList.map((item) => (
             <li>
